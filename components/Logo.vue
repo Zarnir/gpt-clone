@@ -18,12 +18,12 @@ defineProps({
       <img
           class="block w-auto lg:hidden"
           :class="size ? 'h-' + size : 'h-6'"
-          src="/logo-light.png"
+          src="https://ibccambodia.com/wp-content/uploads/2019/09/CBC-Logo-1.png"
           alt=""/>
       <img
           class="hidden w-auto lg:block"
           :class="size ? 'h-' + size : 'h-6'"
-          src="/logo-light.png"
+          src="https://ibccambodia.com/wp-content/uploads/2019/09/CBC-Logo-1.png"
           alt=""
       />
       <span class="text-md font-bold text-primary ml-2" v-if="isText">

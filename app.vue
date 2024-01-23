@@ -36,7 +36,7 @@ await useChatStore().fetchChats();
 
 <template>
   <Html data-theme="dark">
-    <Body class="bg-primary m-0 p-0 text-primary overflow-x-hidden">
+    <Body class="bg-primary-950 m-0 p-0 text-primary overflow-x-hidden">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>

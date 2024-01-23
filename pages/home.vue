@@ -186,7 +186,7 @@ async function startChat(pre_prompt: string, first_message: string, name: string
 <template>
   <div class="md:pl-64 w-full">
     <div
-      class="p-4 divide-y divide-primary overflow-hidden rounded-lg bg-primary shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0"
+      class="p-4 divide-y divide-primary overflow-hidden rounded-lg bg-white shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0"
     >
       <div
         v-for="(person, personIdx) in personalities"
@@ -196,7 +196,7 @@ async function startChat(pre_prompt: string, first_message: string, name: string
           personIdx === 1 ? 'sm:rounded-tr-lg' : '',
           personIdx === person.length - 2 ? 'sm:rounded-bl-lg' : '',
           personIdx === person.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '',
-          'group relative bg-secondary p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent',
+          'group relative bg-primary-opacity p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent',
         ]"
       >
         <div>

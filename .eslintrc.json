@@ -41,7 +41,7 @@
         "vue/multi-word-component-names": "off",
         "linebreak-style": [
             "error",
-            "unix"
+            "window"
         ],
         "quotes": [
             "error",
