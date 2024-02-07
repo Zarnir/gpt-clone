@@ -1,6 +1,6 @@
 export default defineAppConfig({
-  appName: "Internal GPT",
-  appTitle: "Internal GPT",
+  appName: "Rumduol-GPT",
+  appTitle: "Rumduol-GPT",
   appDescription: "",
   appVersion: "1.0.0",
 });

@@ -39,10 +39,10 @@ const currentLocale = computed(() => {
 </script>
 
 <template>
-  <Menu as="div" class="relative inline-block text-left">
+  <Menu as="div" class="relative inline-block text-left pl-2">
     <MenuButton
       as="button"
-      class="inline-flex gap-2 justify-center w-full px-4 py-2 text-sm font-medium text-primary border border-transparent rounded-md"
+      class="inline-flex gap-2 justify-center w-full px-4 py-1 text-sm font-medium text-primary border border-transparent rounded-md"
     >
       <span>{{ currentLocale.flag }}</span>
       <span v-if="isText">{{ currentLocale.name }}</span>
@@ -64,10 +64,10 @@ const currentLocale = computed(() => {
           :key="locale.name"
           as="button"
           @click="setLocale(locale.iso)"
-          class="flex justify-between w-full px-4 py-2 text-sm text-primary hover:bg-secondary"
+          class="flex justify-between w-full px-4 py-2 text-sm text-black bg-white/20 hover:bg-green-600"
         >
           <div class="flex items-center gap-2">
-            <span class="text-muted">{{ locale.flag }}</span>
+            <span class="text-muted text-slate-600">{{ locale.flag }}</span>
             <span v-if="isText">{{ locale.name }}</span>
           </div>
         </MenuItem>

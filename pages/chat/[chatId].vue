@@ -12,10 +12,17 @@ if (!chat.value) throw createError({ statusCode: 404, message: "Chat not found" 
 
 const loading = ref(false);
 
-const message = ref("");
+const prompt = ref("");
+
+const scrollChat = ref(null);
+// const scrollToBottom = () => {
+//   toBottom.value?.scrollIntoView({ behavior: 'smooth' });
+// }
 
 async function sendMessage(regenerate = false) {
-  if (message.value === "" && !regenerate) return;
+  if (prompt.value === "" && !regenerate) return;
+  const message = ref(prompt.value);
+  prompt.value = ""
   loading.value = true;
   try {
     chat.value.messages.push({
@@ -40,13 +47,25 @@ async function sendMessage(regenerate = false) {
     loading.value = false;
   }
 }
+import { getCurrentInstance } from 'vue';
+
+const vm = getCurrentInstance();
+
+const scrollToBottom = () => {
+  if (!vm.refs.myScrollableDiv) retuwrn;
+  nextTick(() => {
+    vm.refs.myScrollableDiv.scrollIntoView({ behavior: 'smooth' });
+  });
+};
+
+onMounted(scrollToBottom); // Use onMounted hook
 </script>
 
 <template>
   <div class="relative flex flex-col container_size h-full">
     <div class="absolute back -z-10 scale-150 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
     <ChatHeader :name="chat.name" :chat-id="chat.id" />
-    <div class="flex-1 p-4 overflow-y-auto flex-col gap-4">
+    <div ref="myScrollableDiv" class="bg-white flex-1 p-4 overflow-y-auto flex-col gap-4">
       <div
         v-for="msg in chat.messages"
         :key="msg.id"
@@ -57,26 +76,34 @@ async function sendMessage(regenerate = false) {
       </div>
       <Loader v-if="loading" />
     </div>
-    <footer class="p-4 flex flex-col items-center gap-4">
-      <div class="flex items-center w-full">
-        <textarea
-          v-model="message"
-          :disabled="loading"
-          rows="3"
-          class="caret-accent w-full bg-primary-opacity/40 p-4 text-primary border-none outline-none shadow-xl border-2 border-accent rounded-xl"
-          :placeholder="$t('chat.writeMessage')"
-        />
-        <button :disabled="loading" @click="sendMessage" class="flex items-center justify-center">
-          <PaperAirplaneIcon
-            class="text-accent cursor-pointer h-8 w-8 ml-4 hover:scale-125 transform transition duration-200 ease-in-out"
+    <div class="bg-white">
+      <footer class="p-4 flex flex-col items-center gap-4">
+        <div class="flex items-center w-full">
+          <textarea
+            ondragstart="return false"
+            v-model="prompt"
+            :disabled="loading"
+            rows="3"
+            class="caret-green-600 w-full bg-slate-200 p-4 text-slat-600 border-none outline-none shadow-xl border-2 border-accent rounded-xl"
+            :placeholder="$t('chat.writeMessage')"
+            @keyup.enter="sendMessage"
           />
-        </button>
-      </div>
-    </footer>
+          <button :disabled="loading" @click="sendMessage" class="flex items-center justify-center">
+            <PaperAirplaneIcon
+              class="text-green-600 cursor-pointer h-8 w-8 ml-4 hover:scale-125 transform transition duration-200 ease-in-out"
+            />
+          </button>
+        </div>
+      </footer>
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+
+textarea {
+  resize: none;
+}
 .container_size {
   position: fixed;
   width: calc(100% - 16rem);

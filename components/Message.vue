@@ -29,17 +29,17 @@ function formatDate(date: Date) {
 <template>
   <div>
     <div
-      class="p-4 rounded-xl shadow-xl text-sm max-w-xl backdrop-blur-3xl bg-primary-opacity/30 border border-white/10"
+      class="p-4 rounded-xl shadow-xl text-sm max-w-xl backdrop-blur-3xl bg-green-200 border border-white/10"
       v-if="message.role !== 'system'"
     >
       <span v-html="$mdRenderer.render(message.content)" class="prose text-primary"> </span>
     </div>
     <div class="flex items-center gap-2 mt-1" :class="[direction === 'left' ? 'justify-start' : 'justify-end']">
       <ClipboardDocumentListIcon
-        class="w-6 h-6 text-white/20 cursor-pointer hover:text-white/50"
+        class="w-6 h-6 text-slate-800 cursor-pointer hover:text-white/50"
         @click="copyToClipboard(message.content)"
       />
-      <span class="text-xs text-white/20" :class="`float-${direction}`">
+      <span class="text-xs text-slate-800" :class="`float-${direction}`">
         {{ formatDate(new Date(message.createdAt)) }}
       </span>
     </div>

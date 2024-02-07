@@ -55,7 +55,7 @@ const sidebarOpen = ref(false);
             leave-from="translate-x-0"
             leave-to="-translate-x-full"
           >
-            <DialogPanel class="relative flex w-full max-w-xs flex-1 flex-col bg-primary focus:outline-none">
+            <DialogPanel class="relative flex w-full max-w-xs flex-1 flex-col bg-white focus:outline-none">
               <TransitionChild
                 as="template"
                 enter="ease-in-out duration-300"

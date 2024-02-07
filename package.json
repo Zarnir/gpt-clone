@@ -15,7 +15,7 @@
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .js,.ts,.vue --ignore-path .gitignore . --fix",
     "prisma:generate": "prisma generate",
-    "prisma:pull": "prisma db pull",
+    "prisma:pull": "prisma db pull",  
     "prisma:push": "prisma db push",
     "prisma:migrate": "prisma migrate dev"
   },

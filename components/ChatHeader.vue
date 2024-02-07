@@ -56,25 +56,27 @@ async function deleteChat() {
 </script>
 
 <template>
-  <div class="bg-primary-opacity/30 flex items-center justify-between px-4 py-3 md:p-6">
+  <div class="bg-white flex items-center justify-between px-4 py-3 md:p-6">
     <div class="min-w-0 flex-1">
       <h2 class="text-sm md:text-2xl font-bold leading-7 text-primary sm:truncate sm:tracking-tight" v-if="!edit_mode">
         {{ nameRef }}
       </h2>
       <input type="text" v-model="nameRef"
              class="text-sm bg-transparent md:text-2xl font-bold leading-7 text-primary sm:truncate sm:tracking-tight focus:outline-none"
-             @blur="updateName" v-else />
+             @blur="updateName"
+             @keyup.enter="updateName"
+             v-else />
     </div>
     <div class="flex gap-3">
       <button type="button" @click="edit_mode = !edit_mode" v-if="!edit_mode"
-              class="flex gap-2 inline-flex items-center rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white/20">
+              class="flex gap-2 inline-flex items-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-950">
         <PencilIcon class="h-4 w-4" />
         <span class="hidden sm:block">
           {{ $t("chat.edit") }}
         </span>
       </button>
       <button type="button" @click="edit_mode = !edit_mode" v-else
-              class="flex gap-2 inline-flex items-center rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white/20">
+              class="flex gap-2 inline-flex items-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-950">
         <XMarkIcon class="h-4 w-4" />
         <span class="hidden sm:block">
           {{ $t("cancel") }}

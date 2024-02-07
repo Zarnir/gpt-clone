@@ -196,7 +196,7 @@ async function startChat(pre_prompt: string, first_message: string, name: string
           personIdx === 1 ? 'sm:rounded-tr-lg' : '',
           personIdx === person.length - 2 ? 'sm:rounded-bl-lg' : '',
           personIdx === person.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '',
-          'group relative bg-primary-opacity p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent',
+          'group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent',
         ]"
       >
         <div>
